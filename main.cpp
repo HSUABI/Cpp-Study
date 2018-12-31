@@ -2,15 +2,32 @@
 #include <stdio.h>
 using namespace std;
 
-int test(int a, int b=2);
+
+namespace TEST
+{
+	namespace EOL
+	{
+		int child=200;
+	}
+	int data=100;
+	void test()
+	{
+		cout<<"Namespace test() : "<<endl;
+	}
+}
+
+
+using namespace TEST;
+using namespace EOL;
+
+
 
 int main()
 {
-	cout<<test(2)<<endl;
-	cout<<test(2,5)<<endl;
+
+	test();
+	cout<< data <<endl;
+	cout<< child <<endl;
+	
 	return 0;
-}
-int test(int a,int b)
-{
-	return a*b;
 }
